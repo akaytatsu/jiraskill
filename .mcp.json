@@ -1,0 +1,52 @@
+{
+  "mcpServers": {
+    "zread": {
+      "type": "http",
+      "url": "https://api.z.ai/api/mcp/zread/mcp",
+      "headers": {
+        "Authorization": "Bearer ${ZAI_API_TOKEN}"
+      }
+    },
+    "zai-mcp-server": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@z_ai/mcp-server"
+      ],
+      "env": {
+        "Authorization": "Bearer ${ZAI_API_TOKEN}",
+        "Z_AI_MODE": "ZAI"
+      }
+    },
+    "web-reader": {
+      "type": "http",
+      "url": "https://api.z.ai/api/mcp/web_reader/mcp",
+      "headers": {
+        "Authorization": "Bearer ${ZAI_API_TOKEN}"
+      }
+    },
+    "web-search-prime": {
+      "type": "http",
+      "url": "https://api.z.ai/api/mcp/web_search_prime/mcp",
+      "headers": {
+        "Authorization": "Bearer ${ZAI_API_TOKEN}"
+      }
+    },
+    "mcp-atlassian": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "mcp-atlassian"
+      ],
+      "env": {
+        "JIRA_URL": "${JIRA_URL}",
+        "JIRA_USERNAME": "${JIRA_USERNAME}",
+        "JIRA_API_TOKEN": "${JIRA_API_TOKEN}",
+        "CONFLUENCE_URL": "${CONFLUENCE_URL}",
+        "CONFLUENCE_USERNAME": "${CONFLUENCE_USERNAME}",
+        "CONFLUENCE_API_TOKEN": "${CONFLUENCE_API_TOKEN}"
+      }
+    }
+  }
+}
