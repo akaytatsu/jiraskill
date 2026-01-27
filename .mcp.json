@@ -47,6 +47,16 @@
         "CONFLUENCE_USERNAME": "${CONFLUENCE_USERNAME}",
         "CONFLUENCE_API_TOKEN": "${CONFLUENCE_API_TOKEN}"
       }
+    },
+    "mcp-outline-wiki": {
+      "command": "uvx",
+      "args": [
+        "mcp-outline"
+      ],
+      "env": {
+        "OUTLINE_API_KEY": "${OUTLINE_API_KEY}",
+        "OUTLINE_API_URL": "${OUTLINE_API_URL}"
+      }
     }
   }
 }
