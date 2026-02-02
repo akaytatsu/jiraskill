@@ -60,6 +60,27 @@ Utilize os templates abaixo como guia mental para estruturar o conteúdo das iss
 *   **Files/Components**: Onde mexer.
 *   **Verificação**: Como testar se está pronto.
 
+### Como Criar Sub-tasks Vinculadas a Stories
+
+Ao criar Sub-tasks, siga este processo específico:
+
+1.  **Verifique o tipo de issue disponível**: Use `mcp-cli info mcp-atlassian/jira_create_issue` para confirmar o nome exato do tipo de sub-tarefa no projeto (ex: "Sub-task", "Subtask", "Subtarefa").
+
+2.  **Crie a Sub-task com vínculo ao pai**: Use o campo `parent` em `additional_fields` para vincular à Story:
+    ```json
+    {
+      "project_key": "VI",
+      "summary": "Nome da sub-tarefa",
+      "issue_type": "Sub-task",
+      "description": "...",
+      "additional_fields": {
+        "parent": "VI-105"
+      }
+    }
+    ```
+
+3.  **Nunca use Task como Sub-task**: Tasks são itens independentes. Para quebrar uma Story em partes menores, use sempre Sub-tasks vinculadas ao pai.
+
 ## 🛠️ Ferramentas Disponíveis (MCP Atlassian)
 
 Você tem acesso às ferramentas do `mcp-atlassian`. Use-as com sabedoria:
